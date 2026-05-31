@@ -1,0 +1,289 @@
+:root {
+    --primary-color: rgba(255, 255, 255, 0.753); /* Puscaurspīdīgi baltais tekstam/akcentiem */
+    --secondary-color: #285854;                  /* Pamata tumši zaļā krāsa visai sistēmai */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex; /* Palīdz novitetot sidebar un saturu blakus */
+    background-color: #f4f4f4;
+}
+
+.logo {
+    margin: 10px 0px 20px 0px;
+    height: 54px;
+    width: 190px;
+}
+
+/* Sānu izvēlnes stils - izmanto tumši zaļo fonu */
+.sidebar {
+    width: 250px;
+    height: 100vh; /* Pilns ekrāna augstums */
+    background-color: var(--secondary-color); /* Tumši zaļā krāsa */
+    color: white;
+    position: fixed; /* Izvēlne nekur nepazūd skritulējot */
+    padding: 20px;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 10px;
+}
+
+.sidebar a {
+    display: block;
+    color: var(--primary-color); /* Puscaurspīdīgi baltais teksts */
+    text-decoration: none;
+    padding: 15px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Kad uzbrauc uz saites vai tā ir aktīva */
+.sidebar a:hover, 
+.sidebar a.active {
+    background-color: rgba(0, 0, 0, 0.2); /* Nedaudz ietonē tumšāku zaļo fonu */
+    color: #ffffff;                       /* Pilnībā balts izgaismots teksts */
+}
+
+.user-info {
+    position: absolute;
+    bottom: 20px;
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+/* Galvenā satura stils */
+.main-content {
+    margin-left: 290px; /* Atstarpe, lai saturs nepaietu zem sidebar */
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    color: var(--secondary-color);
+    padding: 20px;
+    border-bottom: 3px solid #ccc;
+    margin-bottom: 20px;
+}
+
+/* --- TABULAS UN IEKŠĒJO ŠŪNU NOFORMĒJUMS --- */
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Vienmērīga un taisna līnija visām šūnām */
+    vertical-align: middle;        /* Nocentrē visu saturu un pogas rindas vidū */
+}
+
+/* --- DARBĪBAS POGAS UN APVALKS (SALABOTS) --- */
+.darbibas-pogas {
+    display: flex;
+    gap: 8px;                /* Atstarpe starp Labot un Dzēst pogām */
+    align-items: center;     /* Nocentrē pogas vertikāli */
+    white-space: nowrap;     /* Aizliedz tekstam pārlēkt jaunā rindā, ja tabula saspiežas */
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.btn-add { 
+    background-color: #27ae60; 
+    color: white; 
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px; 
+    cursor: pointer; 
+}
+
+.btn-edit { 
+    background-color: #f1c40f; 
+    color: #333;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px; 
+    cursor: pointer; 
+    display: inline-block;
+}
+
+.btn-delete { 
+    background-color: #e74c3c; 
+    color: white; 
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px; 
+    cursor: pointer; 
+    display: inline-block;
+}
+
+/* --- STATUSU KASTĪŠU NOFORMĒJUMS --- */
+.status-box {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ffffff;      /* Balts teksts */
+    border-radius: 4px;  /* Noapaļoti stūri, tieši kā pogām */
+    text-align: center;
+    min-width: 90px;     /* Nodrošina, ka visas kastes ir vienādā platumā */
+    transition: transform 0.2s ease, opacity 0.2s ease; /* Gluds efekts uz peles kustību */
+}
+
+/* Efekts, kad uzbrauc ar peli */
+.status-box:hover {
+    transform: scale(1.05); /* Kastīte maziņo paliek lielāka */
+    opacity: 0.9;           /* Nedaudz mainās caurspīdīgums */
+    cursor: pointer;
+}
+
+/* Zilā kaste -> Aktīvs */
+.status-active {
+    background-color: rgb(0, 162, 255);
+}
+
+/* Zaļā kaste -> Pārdots */
+.status-sold {
+    background-color: green;
+}
+
+/* Oranžā kaste -> Follow-up */
+.status-follow {
+    background-color: orange;
+}
+
+/* Sarkanā kaste -> Slēdzam sadarbību */
+.status-sledzam {
+    background-color: red;
+}
+
+/* Pelēkā kaste -> Ja gadījumā statuss nav noteikts */
+.status-none {
+    background-color: grey;
+}
+
+/* --- BILDES APSTRĀDE TABULĀ --- */
+.tabulas-bilde {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;     
+    border-radius: 4px;    
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15); 
+    cursor: pointer;       
+    transition: transform 0.2s ease; 
+}
+
+/* Kad uzbrauc ar peli uz bildītes */
+.tabulas-bilde:hover {
+    transform: scale(1.08); /* Bilde viegli palielinās */
+}
+
+/* --- FORMAS UN IEVADES LAUKU DIZAINS --- */
+.form-container {
+    max-width: 500px;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="number"],
+.form-container select,
+.textarea-field {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Neļauj paddingam salauzt lauku platumu */
+    font-size: 14px;
+    font-family: inherit;
+    background-color: #fafafa;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.textarea-field:focus {
+    border-color: var(--secondary-color);
+    background-color: #fff;
+    outline: none;
+}
+
+.form-container input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.form-container .btn-add {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.form-container .btn-add:hover {
+    background-color: #219653;
+}
+
+.form-container .btn-add:active {
+    transform: scale(0.99);
+}
+
+.btn-cancel {
+    display: block;
+    text-align: center;
+    color: #7f8c8d;
+    text-decoration: none;
+    margin-top: 15px;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.btn-cancel:hover {
+    color: #333;
+}
+
+.textarea-field {
+    resize: vertical;
+    min-height: 80px;
+}
