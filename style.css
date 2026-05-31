@@ -1,12 +1,12 @@
 :root {
-    --primary-color: rgba(255, 255, 255, 0.753); /* Puscaurspīdīgi baltais tekstam/akcentiem */
-    --secondary-color: #285854;                  /* Pamata tumši zaļā krāsa visai sistēmai */
+    --primary-color: rgba(255, 255, 255, 0.753);
+    --secondary-color: #285854;
 }
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    display: flex; /* Palīdz novitetot sidebar un saturu blakus */
+    display: flex; 
     background-color: #f4f4f4;
 }
 
@@ -16,14 +16,17 @@ body {
     width: 190px;
 }
 
-/* Sānu izvēlnes stils - izmanto tumši zaļo fonu */
+/* sanu menu - lai stav smuki kreisaja mala un nekustas */
 .sidebar {
     width: 250px;
-    height: 100vh; /* Pilns ekrāna augstums */
-    background-color: var(--secondary-color); /* Tumši zaļā krāsa */
+    height: 100vh;
+    background-color: var(--secondary-color);
     color: white;
-    position: fixed; /* Izvēlne nekur nepazūd skritulējot */
+    position: fixed; 
     padding: 20px;
+    display: flex;
+    vertical-align: top;
+    flex-direction: column;
 }
 
 .sidebar h2 {
@@ -35,7 +38,7 @@ body {
 
 .sidebar a {
     display: block;
-    color: var(--primary-color); /* Puscaurspīdīgi baltais teksts */
+    color: var(--primary-color);
     text-decoration: none;
     padding: 15px 10px;
     margin-bottom: 5px;
@@ -43,11 +46,11 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Kad uzbrauc uz saites vai tā ir aktīva */
+/* kad uzbrauc ar peli vai kad lapa ir aktiva */
 .sidebar a:hover, 
 .sidebar a.active {
-    background-color: rgba(0, 0, 0, 0.2); /* Nedaudz ietonē tumšāku zaļo fonu */
-    color: #ffffff;                       /* Pilnībā balts izgaismots teksts */
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
 }
 
 .user-info {
@@ -57,9 +60,9 @@ body {
     color: var(--primary-color);
 }
 
-/* Galvenā satura stils */
+/* labas puses liela satura dala */
 .main-content {
-    margin-left: 290px; /* Atstarpe, lai saturs nepaietu zem sidebar */
+    margin-left: 290px;
     padding: 40px;
     width: 100%;
     box-sizing: border-box;
@@ -76,7 +79,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* --- TABULAS UN IEKŠĒJO ŠŪNU NOFORMĒJUMS --- */
+/* --- paša tabulas kaste un lines --- */
 table {
     width: 100%;
     background: white;
@@ -86,16 +89,16 @@ table {
 th, td {
     padding: 15px;
     text-align: left;
-    border-bottom: 1px solid #ddd; /* Vienmērīga un taisna līnija visām šūnām */
-    vertical-align: middle;        /* Nocentrē visu saturu un pogas rindas vidū */
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
 }
 
-/* --- DARBĪBAS POGAS UN APVALKS (SALABOTS) --- */
+/* --- pogu izkartojums tabulas mala --- */
 .darbibas-pogas {
     display: flex;
-    gap: 8px;                /* Atstarpe starp Labot un Dzēst pogām */
-    align-items: center;     /* Nocentrē pogas vertikāli */
-    white-space: nowrap;     /* Aizliedz tekstam pārlēkt jaunā rindā, ja tabula saspiežas */
+    gap: 8px;
+    align-items: center;
+    white-space: nowrap;
     height: 100%;
     box-sizing: border-box;
 }
@@ -131,52 +134,52 @@ th, td {
     display: inline-block;
 }
 
-/* --- STATUSU KASTĪŠU NOFORMĒJUMS --- */
+/* --- krasainie statusu kluci --- */
 .status-box {
     display: inline-block;
     padding: 6px 12px;
     font-size: 13px;
     font-weight: bold;
-    color: #ffffff;      /* Balts teksts */
-    border-radius: 4px;  /* Noapaļoti stūri, tieši kā pogām */
+    color: #ffffff;
+    border-radius: 4px;
     text-align: center;
-    min-width: 90px;     /* Nodrošina, ka visas kastes ir vienādā platumā */
-    transition: transform 0.2s ease, opacity 0.2s ease; /* Gluds efekts uz peles kustību */
+    min-width: 90px;
+    transition: transform 0.2s ease, opacity 0.2s ease; /* gluds kad uzbrauc ar peli */
 }
 
-/* Efekts, kad uzbrauc ar peli */
+/* kad uzbrauc virsu statusa kastei */
 .status-box:hover {
-    transform: scale(1.05); /* Kastīte maziņo paliek lielāka */
-    opacity: 0.9;           /* Nedaudz mainās caurspīdīgums */
+    transform: scale(1.05);
+    opacity: 0.9;
     cursor: pointer;
 }
 
-/* Zilā kaste -> Aktīvs */
+/* zila krasa -> Aktivs */
 .status-active {
     background-color: rgb(0, 162, 255);
 }
 
-/* Zaļā kaste -> Pārdots */
+/* zala krasa -> Pardots */
 .status-sold {
     background-color: green;
 }
 
-/* Oranžā kaste -> Follow-up */
+/* oranza krasa -> Follow-up */
 .status-follow {
     background-color: orange;
 }
 
-/* Sarkanā kaste -> Slēdzam sadarbību */
+/* sarkana krasa -> Sledzam sadarbibu */
 .status-sledzam {
     background-color: red;
 }
 
-/* Pelēkā kaste -> Ja gadījumā statuss nav noteikts */
+/* peleka krasa -> ja statuss ir tuks un nav nekas izvelets */
 .status-none {
     background-color: grey;
 }
 
-/* --- BILDES APSTRĀDE TABULĀ --- */
+/* --- majas bilde tabula --- */
 .tabulas-bilde {
     width: 50px;
     height: 50px;
@@ -187,12 +190,12 @@ th, td {
     transition: transform 0.2s ease; 
 }
 
-/* Kad uzbrauc ar peli uz bildītes */
+/* kad uzbrien uz bildites ar peli */
 .tabulas-bilde:hover {
-    transform: scale(1.08); /* Bilde viegli palielinās */
+    transform: scale(1.08);
 }
 
-/* --- FORMAS UN IEVADES LAUKU DIZAINS --- */
+/* --- formas balta kaste kad pievieno jaunu lead --- */
 .form-container {
     max-width: 500px;
     background: white;
@@ -223,7 +226,7 @@ th, td {
     padding: 10px 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* Neļauj paddingam salauzt lauku platumu */
+    box-sizing: border-box;
     font-size: 14px;
     font-family: inherit;
     background-color: #fafafa;
@@ -286,4 +289,122 @@ th, td {
 .textarea-field {
     resize: vertical;
     min-height: 80px;
+}
+
+/* izrakstisanas poga pasaa sidebar apaksa */
+.sidebar .btn-logout {
+    margin-top: auto;
+    margin-bottom: 40px;
+    
+    background-color: rgba(231, 76, 60, 0.2); 
+    color: #ffffff; 
+    border: 1px solid rgba(231, 76, 60, 0.4);
+    font-weight: bold;
+    text-align: center;
+}
+
+.sidebar .btn-logout:hover {
+    background-color: rgb(189, 92, 92);
+    color: #ffffff; 
+}
+
+
+
+/* --- kastes centreshana tiesi prieks login.php --- */
+
+body:has(.login-container) {
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+    
+    position: fixed ;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    background-color: var(--secondary-color);
+}
+
+/* baltais login logs pa vidu */
+.login-container {
+    width: 100%;
+    height: 100%;
+    max-height: 410px;
+    max-width: 670px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 60px 60px 40px 60px;
+    background-color: white;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.login-container .form-group {
+    width: 100%;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.login-container .form-group label {
+    text-align: center;
+    width: 100%;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fff;
+}
+
+/* liela ienaksana poga */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+
+/* crm sistema virsraksts login kastes augsa */
+.login-container h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.login-error{
+    color: red;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 320px;
 }

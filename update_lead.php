@@ -1,4 +1,13 @@
 <?php
+session_start();
+if (!isset($_SESSION['autorizets']) || $_SESSION['autorizets'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
+
+<?php
 include 'connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

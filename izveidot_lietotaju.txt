@@ -1,0 +1,15 @@
+<?php
+include 'connection.php';
+
+$user = 'vards';
+$vards = 'vards';
+
+
+//paroles sifresnaa
+$parole_hash = password_hash('parole', PASSWORD_DEFAULT); 
+
+$sql = "INSERT INTO lietotaji (lietotajvards, parole, vards) VALUES ('$user', '$parole_hash', '$vards')";
+if(mysqli_query($con, $sql)) {
+    echo "Lietotājs veiksmīgi izveidots!";
+}
+?>

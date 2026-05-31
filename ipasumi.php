@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['autorizets']) || $_SESSION['autorizets'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <?php include 'connection.php'; ?>
 <!DOCTYPE html>
 <html lang="lv">
@@ -15,6 +23,7 @@
         <a href="ipasumi.php" class="active">Ipašumi</a>
         <a href="klienti.php">Klienti</a>
         <a href="followup.php">Follow up</a>
+        <a href="logout.php" class="btn-logout" >Iziet</a>
     </div>
 
     <div class="main-content">
